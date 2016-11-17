@@ -1,0 +1,49 @@
+<<!--For xty's EVERY birthday-->
+
+<html>
+<head>
+	<title>Hello Are You OK</title>
+</head>
+
+<body>
+	<h1 align="center">Happy Birthday</h1>
+	<canvas id="theCanva" onmousedown="mouseDown()"></canvas>
+	<script>
+		alert("Here's your birthday cake.");
+		alert("Put some candles on it!");
+		var now=new Date();
+		var birthYear=2001;
+		var currentAge=(now.getMonth()+now.getDate()/100>=10.18)?(now.getFullYear()-birthYear):(now.getFullYear()-birthYear-1);
+		var count=0;
+		var height=document.body.clientHeight,width=document.body.clientWidth;
+		var r=(height<width?height:width)/2
+		var canvas=document.getElementById("theCanva");
+		canvas.width=width;
+		canvas.height=height;
+		var drawer=canvas.getContext("2d");
+		drawer.font="100px Arial"
+		drawer.textAlign="center";
+		drawer.fillText("0",width/2,height/2);
+		drawer.beginPath();
+		drawer.arc(width/2,height/2,r,0,2*Math.PI);
+		drawer.stroke();
+		function mouseDown()
+		{
+			if(count<currentAge)
+			{
+				var sideLength=r*Math.sqrt(2);
+				drawer.clearRect((width-sideLength)/2,(height-sideLength)/2,sideLength,sideLength);
+				count++;
+				drawer.fillText(count,width/2,height/2);
+			}
+			else
+			{
+				alert("Try next year!");
+			}
+		}
+	</script>
+	<p align="center">Copyright 2015 Zihong Lin. All rights reserved.</p>
+</body>
+</html>
+
+<!--I don't think you would notice here. If you saw this, contact me for your reward.-->
